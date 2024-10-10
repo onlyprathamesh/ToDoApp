@@ -1,0 +1,32 @@
+2024-10-10 22:27:08,457 - INFO - test_404_page: PASSED
+2024-10-10 22:27:08,482 - INFO - test_add_button_text: PASSED
+2024-10-10 22:27:10,866 - INFO - test_add_task: PASSED
+2024-10-10 22:27:10,884 - INFO - test_add_task_button_present: PASSED
+2024-10-10 22:27:13,087 - INFO - test_back_home_from_404: PASSED
+2024-10-10 22:27:13,103 - INFO - test_button_style: PASSED
+2024-10-10 22:27:23,113 - ERROR - test_delete_button_present: FAILED
+2024-10-10 22:27:33,118 - ERROR - test_delete_functionality: FAILED
+2024-10-10 22:27:35,226 - INFO - test_delete_invalid_task: PASSED
+2024-10-10 22:27:45,269 - ERROR - test_delete_task: FAILED
+2024-10-10 22:27:45,286 - INFO - test_description_input_placeholder: PASSED
+2024-10-10 22:27:47,657 - ERROR - test_duplicate_task_prevention: FAILED
+2024-10-10 22:27:49,822 - ERROR - test_empty_task_submission: FAILED
+2024-10-10 22:27:59,866 - ERROR - test_empty_update_submission: FAILED
+2024-10-10 22:27:59,871 - INFO - test_home_page_load: PASSED
+2024-10-10 22:27:59,876 - INFO - test_home_page_url: PASSED
+2024-10-10 22:27:59,896 - INFO - test_navbar_brand_text: PASSED
+2024-10-10 22:28:02,001 - INFO - test_navbar_link_functionality: PASSED
+2024-10-10 22:28:02,027 - INFO - test_navbar_present: PASSED
+2024-10-10 22:28:02,109 - ERROR - test_table_headings: FAILED
+2024-10-10 22:28:04,516 - INFO - test_table_row_count_after_task_addition: PASSED
+2024-10-10 22:28:06,811 - INFO - test_task_addition_with_space: PASSED
+2024-10-10 22:28:06,834 - INFO - test_task_display_table: PASSED
+2024-10-10 22:28:06,845 - INFO - test_task_input_placeholder: PASSED
+2024-10-10 22:28:09,009 - INFO - test_task_not_added_on_empty_submission: PASSED
+2024-10-10 22:28:13,866 - ERROR - test_task_ordering: FAILED
+2024-10-10 22:28:23,914 - ERROR - test_task_updates_correctly: FAILED
+2024-10-10 22:28:33,974 - ERROR - test_update_button_present: FAILED
+2024-10-10 22:28:44,027 - ERROR - test_update_redirects_to_home: FAILED
+2024-10-10 22:28:54,063 - ERROR - test_update_task: FAILED
+2024-10-10 22:28:56,404 - INFO - Total Passed: 18
+2024-10-10 22:28:56,405 - INFO - Total Failed: 12

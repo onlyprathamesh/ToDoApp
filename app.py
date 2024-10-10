@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, abort
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -14,15 +14,11 @@ class Todo(db.Model):
     def __repr__(self) -> str:
         return f"{self.task} - {self.description}"
 
-with app.app_context() :
+with app.app_context():
     db.create_all()
 
 @app.route('/', methods=['GET', 'POST'])
-def ToDo() :
-    # todo = Todo(task="Learn Flask", description="Complete Flask tutorial and implementation of Code With Harry")
-    # db.session.add(todo)
-    # db.session.commit()
-
+def ToDo():
     if request.method == 'POST':
         task = request.form['task']
         desc = request.form['desc']
@@ -31,29 +27,34 @@ def ToDo() :
         db.session.commit()
 
     allTodo = Todo.query.all()
-    return render_template('index.html', allTodo = allTodo)
+    return render_template('index.html', allTodo=allTodo)
 
 @app.route('/delete/<int:sno>')
 def delete(sno):
     todo = Todo.query.filter_by(sno=sno).first()
+    if todo is None:
+        return abort(404)  # Return a 404 error if the task does not exist
     db.session.delete(todo)
     db.session.commit()
-
     return redirect('/')
 
-@app.route('/update/<int:sno>', methods = ['GET', 'POST'])
+@app.route('/update/<int:sno>', methods=['GET', 'POST'])
 def update(sno):
+    todo = Todo.query.filter_by(sno=sno).first()
+    if todo is None:
+        return abort(404)  # Return a 404 error if the task does not exist
     if request.method == 'POST':
         task = request.form['task']
         desc = request.form['desc']
-        newtask = Todo.query.filter_by(sno=sno).first()
-        newtask.task = task
-        newtask.description = desc
-        db.session.add(newtask)
+        todo.task = task
+        todo.description = desc
         db.session.commit()
         return redirect('/')
-    todo = Todo.query.filter_by(sno=sno).first()
     return render_template('update.html', todo=todo)
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('404.html'), 404  # Create a 404.html template
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
